@@ -1,8 +1,23 @@
-with open('demo.csv', 'w') as file :
-	file.write("This is a New CSV file")
+import csv
+
+data = [
+    ['Name', 'Age', 'City'],
+    ['Alice', 30, 'New York'],
+    ['Bob', 25, 'Los Angeles'],
+    ['Charlie', 35, 'Chicago']
+]
+
+with open('CSV.csv', 'w', newline='') as file :
+	writer = csv.writer(file)
+	writer.writerows(data)
 	
-with open('demo.csv', 'r') as file :
-	print(file.read())
+with open('CSV.csv', 'r') as file :
+	reader = csv.reader(file)
+	for i in reader :
+		print(i)
 
 output :
-This is a New CSV file
+['Name', 'Age', 'City'],
+['Alice', 30, 'New York'],
+['Bob', 25, 'Los Angeles'],
+['Charlie', 35, 'Chicago'] 
